@@ -1,22 +1,22 @@
 class Triangle
-  attr_accessor :s1, :s2, :s3, :kind
+  attr_accessor :a, :b, :c, :kind
 
-  def initialize(s1, s2, s3)
-    @s1 = s1
-    @s2 = s2
-    @s3 = s3
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
   def kind
-    if (s1 * s2 * s3) == 0 || (s1 + s2) <= s3 || (s2 + s3) <= s1 || (s3 + s1) <= s2
+    if (a * b * c) == 0 || (a + b) <= c || (b + c) <= a || (c + a) <= b
       begin
         raise TriangleError
       end
 
-    elsif s1 == s2 && s1 == s3
+    elsif a == b && a == c
       self.kind = :equilateral
 
-    elsif s1 == s2 || s2 == s3 || s3 == s1
+    elsif a == b || b == c || c == a
       self.kind = :isosceles
 
     else
